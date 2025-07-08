@@ -1,8 +1,17 @@
 import streamlit as st
+import numpy as np 
+
+from pandas.api.types import (
+    is_categorical_dtype,
+    is_datetime64_any_dtype,
+    is_numeric_dtype,
+    is_object_dtype,
+)
+
 import pandas as pd
 
 
-# Loading dataset
+# Download latest version
 path = "C:\\Users\\Lenovo\\Downloads\\archive (3)\\premier-player-23-24.csv"
 dataframe = pd.read_csv(path)
 
@@ -19,6 +28,7 @@ st.sidebar.markdown("## Filter Options")
 
 st.sidebar.subheader("Filter by Club")
 selected_club = st.sidebar.selectbox("Choose Club", dataframe['Team'].unique())
+
 
 st.sidebar.subheader("Filter by Position")
 selected_position = st.sidebar.selectbox("Choose Position", dataframe['Pos'].unique())
@@ -48,11 +58,10 @@ def filter_dataframe(df, selected_club, selected_position, selected_player, sele
         
     return filtered_df
 
-
-
 # Returning filtered dataframe
 
 filtered_dataframe = filter_dataframe(dataframe, selected_club, selected_position, selected_player, selected_nation)
+
 st.subheader("Filtered DataFrame")
 st.dataframe(filtered_dataframe)
 

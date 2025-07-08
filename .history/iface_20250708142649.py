@@ -1,8 +1,17 @@
 import streamlit as st
+import numpy as np 
+
+from pandas.api.types import (
+    is_categorical_dtype,
+    is_datetime64_any_dtype,
+    is_numeric_dtype,
+    is_object_dtype,
+)
+
 import pandas as pd
 
 
-# Loading dataset
+# Download latest version
 path = "C:\\Users\\Lenovo\\Downloads\\archive (3)\\premier-player-23-24.csv"
 dataframe = pd.read_csv(path)
 
