@@ -10,7 +10,6 @@ dataframe = pd.read_csv(path)
 st.title("Database UI")
 st.header("Interactive Premier League Player Database 23/24")
 
-
 # display dataframe
 st.subheader("Original DataFrame")
 st.dataframe(dataframe)
